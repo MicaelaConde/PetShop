@@ -1,4 +1,3 @@
-alert("Bienvenido a Pet Shop");
 let compra = 0;
 let i = 1;
 let carrito =[]
@@ -47,6 +46,7 @@ productos.forEach(producto=>{
   option.innerText = `${producto.nombre}: $${producto.precio}`
   selectTag.append(option)
 })
+
  const boton = document.createElement('button')
  boton.innerText = "Agregar al carrito"
  document.body.append(boton)
