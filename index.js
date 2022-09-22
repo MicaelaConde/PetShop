@@ -2,9 +2,12 @@ let compra = 0;
 let i = 1;
 let carrito = [];
 let listado = [];
-const selecProduct = document.getElementsByClassName("carrito");
-const selectTag = document.getElementById("lista");
-
+const selectTag = document.getElementById('lista');
+const carritoTag = document.getElementById('carrito')
+const agregar = document.getElementById('btnAgregar')
+agregar.addEventListener('click',AgregarItem)
+const listacarrito = document.getElementById('btncarrito')
+listacarrito.addEventListener('click',verCarrito)
 let productos = [
   {
     tipo: "Alimento",
@@ -44,26 +47,24 @@ let productos = [
 productos.forEach((producto) => {
   const option = document.createElement("option");
   option.innerText = `${producto.nombre}: $${producto.precio}`;
-  selecProduct.append(option);
+  selectTag.append(option);
 });
 
-const boton = document.createElement("button");
-boton.innerText = "Agregar al carrito";
-document.body.append(boton);
-
-btnFinalizar = document.createElement("button");
-btnFinalizar.innerText = "Finalizar compra";
-document.body.append(btnFinalizar);
-
-boton.onclick = () => {
+function AgregarItem(){
   const agregarproducto = productos[selectTag.selectedIndex];
   carrito.push(agregarproducto);
-};
 
-btnFinalizar.onclick = () => {
-  let compra = 0;
-  carrito.forEach((producto) => {
-    compra = compra + producto.precio;
-  });
-  alert("El monto total de su compra es: $" + compra);
-};
+  console.log(carrito)
+  
+}
+
+
+
+function verCarrito(){
+  
+  carrito.forEach((item) => {
+    const option = document.createElement("option");
+    option.innerText = `${item.nombre}: $${item.precio}`;
+    carritoTag.append(option);
+  })
+}
