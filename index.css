@@ -8,77 +8,16 @@ display: flex;
 justify-content: center;
 }
 
-div{
+.logo{
     display: flex;
     justify-content: center;
 }
 
-button{
-    
-    margin-left:40%;
-    margin-top: 2%;
-    width: 20%;
-}
 
 .bgBienvenida{
     background-color: rgb(42, 173, 9)
 }
 
-h1{
-    color: rgb(255, 106, 248);
-    font-size: 8vh;
-    text-align: center;
-    margin-top: 5vh;
-}
-
-h2{
-    margin-top: 10vh;
-    text-align: center;
-}
-
-.form{
-  margin-top: 5%;
-}
-.btnsubmit{
-    border: black solid 1px;
-    display: flex;
-    justify-content: center;
-    font-size: medium;    width: 10%;
-    width: 15%;
-    
-    margin-top: 10%;
-}
-
-
-.container .row{
-    
-    width: 70%;
-    gap: 5%;
-    height: 70vh;
-}
-
-.container .row .col{
-    display: block;
-    border-color: rgb(243, 160, 122);
-    width: 100%;
-    
-}
-.container .row .col img{
-    margin-left: 15%;
-    margin-top: 18%;
-    width: 70%;
-    height: 70%;
-}
-.container .row .col img:hover{
-  transform: scale(1.2);
-  transition: 0.5s;
-}
-
-.descripcionProducto{
-    margin-top: 8%;
-    margin-left: 5%;
-    font-size: larger;
-}
 #header{
     display: block;
 }
@@ -92,3 +31,45 @@ h2{
     font-size: larger;
 }
 
+#contenedor-productos{
+    margin-top: 8%;
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
+    gap: 5%;
+    margin-bottom: 20vh;
+}
+
+#contenedor-productos div{
+
+    display: block;
+   text-align: center;
+   
+}
+
+#contenedor-productos div img{
+    width: 60%;
+    height: 65%;
+    margin-top: 5%;
+
+}
+   
+
+.descripcion-producto{
+    margin-top: 2%;
+    font-size: medium;
+
+}
+
+.btn-agregar{
+    height: 5vh;
+    margin-top: 3%;
+    width: 25%;
+    font-size: large;
+    border: none;
+    background-color: rgb(168, 231, 152);
+}
+.btn-agregar:hover{
+    transform: scale(1.3);
+    transition: 0.2s;
+
+}

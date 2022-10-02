@@ -56,9 +56,8 @@ stockproductos.forEach((producto) => {
   div.classList.add("productos");
   div.innerHTML = `
   <img src=${producto.img} alt ="">
-  <h3>${producto.nombre}<h3>
-  <p>${producto.tipo}</p>
-  <p>precio:$ ${producto.precio}</p>
+  <p class="descripcion-producto">${producto.tipo}</p>
+  <h3 class="nombre-producto">${producto.nombre}   $${producto.precio}<h3>
   <button id="agregar${producto.id}" class="btn-agregar">Agregar</button>
   `;
 
@@ -108,7 +107,8 @@ const actualizarCarrito= ()=>{
     <p>${prod.nombre}</p>
     <p>Precio: ${prod.precio}</p>
     <button onclick ="eliminarDelCarrito(${prod.id})" ></button>
-    `
+    
+ `
 
     contenedorCarrito.appendChild(div)
  
