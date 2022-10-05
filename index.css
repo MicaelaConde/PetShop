@@ -73,3 +73,30 @@ justify-content: center;
     transition: 0.2s;
 
 }
+
+
+#img-random{
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    margin-bottom: 5%;
+}
+#img-random img{
+    margin-top: 3%;
+
+    width: 50vh;
+    height: 100%;
+}
+
+.btn-img{
+    text-align: center;
+    
+}
+
+#btn-fetch{
+    width:15vh;
+    height: 10vh;
+    border-color: rgb(14, 238, 14);
+    background-color:rgba(235, 91, 38, 0.829);
+    text-underline-offset: none;
+}

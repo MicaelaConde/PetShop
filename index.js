@@ -2,7 +2,8 @@ let carrito = [];
 let listado = [];
 const contenedorProductos = document.getElementById('contenedor-productos');
 const contenedorCarrito = document.getElementById('form-carrito');
-
+const btnFetch= document.getElementById('btn-fetch');
+const random= document.getElementById('img-random')
 let stockproductos = [
   {
     id: 1,
@@ -112,6 +113,22 @@ const actualizarCarrito= ()=>{
 
     contenedorCarrito.appendChild(div)
  
-   
+
+
   })
 }
+
+
+
+btnFetch.onclick=()=>{
+  fetch('https://dog.ceo/api/breeds/image/random')
+  .then(response => response.json())
+  .then(json => {
+    const animales = json.message
+    console.log(animales)
+    random.innerHTML=`
+    <img src=${animales} alt ="">
+    `
+  })
+ 
+ }
