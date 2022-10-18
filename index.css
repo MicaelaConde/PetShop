@@ -74,6 +74,73 @@ justify-content: center;
 
 }
 
+.modal_container{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    display: grid;
+     justify-content: center; 
+ background-color:transparent;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events:none ;
+
+}
+
+.modal_show{
+    opacity: 1;
+    pointer-events:unset;
+} 
+
+#modal{
+    margin-top: 5%;
+    padding: 3em 2.5em;
+    display: grid;
+    gap: 1px;
+    background-color: white;
+    height: 500px;
+    width: 600px;
+    max-width: 600px;
+    border-radius: 5px;
+    text-align: center;
+    overflow: scroll;
+}
+
+#modal div{
+    margin-bottom: 2%;
+    gap: 1%;
+    border: solid black 1px;
+    display: flex;
+    justify-content: space-between;
+    height: 25vh;
+    width: auto;
+    margin-right: 2%;
+   
+} 
+
+#modal div img{
+    margin-left: 0%;
+    width: 16vw;
+    height: 25vh;
+}
+
+#modal button{
+    padding-right: 0%;
+    border: none;
+    margin-top: 10%;
+    margin-right: 0%;
+    width: 6.5%;
+    height: 5vh;
+    background-image: url("imagenes/iconos/cruz.ico");
+    
+}
+
+#btnclose{
+    text-align: left;
+}
 
 #img-random{
     display: flex;
@@ -99,4 +166,29 @@ justify-content: center;
     border-color: rgb(14, 238, 14);
     background-color:rgba(235, 91, 38, 0.829);
     text-underline-offset: none;
+}
+
+
+#footer{
+    background-color: rgb(168, 231, 152);
+    display: flex;
+}
+  
+
+.icono{
+    display: block;
+    align-items: baseline;
+    margin-left: 10%;
+    margin-top: 30%;
+    margin-bottom: 1%;
+    width: 30%;
+    height: 3%;
+}
+
+.Pmapa{
+    margin-top: 13%;
+}
+.mapa{
+    width: 110%;
+   height: 60%;
 }

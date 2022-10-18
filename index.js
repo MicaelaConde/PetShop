@@ -1,7 +1,10 @@
 let carrito = [];
 let listado = [];
-const contenedorProductos = document.getElementById('contenedor-productos');
-const contenedorCarrito = document.getElementById('form-carrito');
+const contenedorProductos = document.getElementById("contenedor-productos");
+const btnCarrito = document.getElementById("miCarrito");
+const modalContainer = document.getElementById("modal-container");
+const btnClose= document.getElementById("btnclose")
+const modal=document.getElementById("modal");
 const btnFetch= document.getElementById('btn-fetch');
 const random= document.getElementById('img-random')
 let stockproductos = [
@@ -67,15 +70,13 @@ stockproductos.forEach((producto) => {
   boton.addEventListener("click", () => {
     agregarAlCarrito(producto.id);
     Swal.fire({
-      position: 'top-end',
-      icon: 'success',
+      position: "top-end",
+      icon: "success",
       title: `Se agrego el producto ${producto.nombre} al carrito`,
       showConfirmButton: false,
-      timer: 1500
-    })
-   
+      timer: 1500,
+    });
   });
-
 });
 
 const agregarAlCarrito = (prodID) => {
@@ -86,39 +87,47 @@ const agregarAlCarrito = (prodID) => {
 };
 
 const eliminarDelCarrito = (prodID) => {
-  const item = carrito.find((prod) => prod.id === prodID)
-  const indice = carrito.indexOf(item)
+  const item = carrito.find((prod) => prod.id === prodID);
+  const indice = carrito.indexOf(item);
   Swal.fire({
-    position: 'top-end',
-    icon: 'success',
+    position: "top-end",
+    icon: "success",
     title: `Se elimino el producto ${carrito[indice].nombre} del carrito`,
     showConfirmButton: false,
-    timer: 1500
-  })
-  carrito.splice(indice,1)
-  actualizarCarrito()
- 
-}
+    timer: 1500,
+  });
+  carrito.splice(indice, 1);
+  actualizarCarrito();
+};
 
-const actualizarCarrito= ()=>{
-  contenedorCarrito.innerHTML=""
-  carrito.forEach ((prod) => {
-    const div = document.createElement('div')
-    div.innerHTML=`
+const actualizarCarrito = () => {
+  modal.innerHTML = "";
+  carrito.forEach((prod) => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+    <img src=${prod.img} alt ="">
     <p>${prod.nombre}</p>
     <p>Precio: ${prod.precio}</p>
     <button onclick ="eliminarDelCarrito(${prod.id})" ></button>
     
- `
+ `;
 
-    contenedorCarrito.appendChild(div)
- 
+  
+ modal.appendChild(div);
+
+  });
+};
+
+btnCarrito.addEventListener('click',() => {
+  modalContainer.classList.add('modal_show');
+  
+});
 
 
-  })
-}
-
-
+btnClose.addEventListener('click',() => {
+  modalContainer.classList.remove('modal_show');
+  
+});
 
 btnFetch.onclick=()=>{
   fetch('https://dog.ceo/api/breeds/image/random')

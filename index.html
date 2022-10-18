@@ -17,8 +17,8 @@
 <header id="header">
     <nav>
         <ul>
-            <li><a href="cuenta.html">Mi cuenta</a></li>
-            <li><a href="carrito.html">Mi carrito</a></li>
+          
+            <li><a href="#" id="miCarrito">Mi carrito html</a></li>
         </ul>
     </nav>
     <div class="logo">
@@ -26,14 +26,37 @@
     </div>
     
 </header>
- 
+
+
+<section id="modal-container" class="modal_container">
+
+    <div id="modal"><section>
+    <h2>Mi Carrito</h2>
+        
+    </section>
+   
+       
+      
+    </div>
+
+    <div>
+        <button id="btnclose">Cerrar</button>
+    </div>
+       
+        
+
+    
+    
+    
+</section>
 
 <main id="contenedor-productos">
 
   
 </main>
 
-<main id="form-carrito"></main>
+
+
 <div class="btn-img">
     <button id="btn-fetch">Fotos de mascotas</button>
 </div>
@@ -41,8 +64,21 @@
 <div id="img-random"></div>
 
 
-<footer>
+<footer id="footer">
+   <div class="links">
+    <ul>
+        <li><a href="https://www.instagram.com/" target="_blank"><img src="imagenes/iconos/instagram.ico" alt="Icono instagram" class="icono"></a></li>
+    <li><a href="https://www.facebook.com/" target="_blank"><img src="imagenes/iconos/facebook.ico" alt="Icono facebook" class="icono"></a></li>
+    <li> <a href="https://web.whatsapp.com/" target="_blank"><img src="imagenes/iconos/whatsapp.ico" alt="Icono whatsapp" class="icono"></a></li>
    
+</ul>
+   </div>
+
+   <div >
+    <p class="Pmapa">Direccion: José Ellauri 350 esq. Solano García</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.295801839346!2d-56.160774285183564!3d-34.9241176820272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f819d6fa00fd3%3A0xb24389518c0c3751!2sPunta%20Carretas%20Shopping!5e0!3m2!1ses-419!2suy!4v1665356576983!5m2!1ses-419!2suy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
+   </div>
+
 </footer>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
