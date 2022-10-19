@@ -10,25 +10,25 @@ const random= document.getElementById('img-random')
 let stockproductos = [
   {
     id: 1,
-    tipo: "Alimento",
+    tipo: "Alimento Perros",
     nombre: "Bolsa chica",
-    img: "/imagenes/productos/comida/comida1.png",
+    img: "/imagenes/productos/comida/comidaPerro.png",
     kilos: 1,
     precio: 120,
   },
   {
     id: 2,
-    tipo: "Alimento",
+    tipo: "Alimento Perros",
     nombre: "Bolsa mediana",
-    img: "imagenes/productos/comida/comida1.png",
+    img: "imagenes/productos/comida/comidaPerro.png",
     kilos: 5,
     precio: 500,
   },
   {
     id: 3,
-    tipo: "Alimento",
+    tipo: "Alimento Perros",
     nombre: "Bolsa grande",
-    img: "imagenes/productos/comida/comida1.png",
+    img: "imagenes/productos/comida/comidaPerro.png",
     kilos: 10,
     precio: 840,
   },
@@ -36,22 +36,106 @@ let stockproductos = [
     id: 4,
     tipo: "Juguete",
     nombre: "Pelota",
-    img: "imagenes/productos/juguetes/pelotatr.png",
+    img: "imagenes/productos/juguetes/perros/pelotatr.png",
     precio: 150,
   },
   {
     id: 5,
     tipo: "Juguete",
     nombre: "Cuerda",
-    img: "imagenes/productos/juguetes/cuerdatr.png",
+    img: "imagenes/productos/juguetes/perros/cuerdatr.png",
     precio: 80,
   },
   {
     id: 6,
     tipo: "Juguete",
     nombre: "Hueso",
-    img: "imagenes/productos/juguetes/huesotr.png",
+    img: "imagenes/productos/juguetes/perros/huesotr.png",
     precio: 130,
+  },
+  {
+    id: 7,
+    tipo: "Alimento Gatos",
+    nombre: "Bolsa Grande",
+    img: "imagenes/productos/comida/comidaGato.png",
+    precio: 180,
+  },
+  {
+    id: 8,
+    tipo: "Alimento Gatos",
+    nombre: "Bolsa Mediana",
+    img: "imagenes/productos/comida/comidaGato.png",
+    precio: 120,
+  },
+  {
+    id: 9,
+    tipo: "Alimento Gatos",
+    nombre: "Bolsa Chica",
+    img: "imagenes/productos/comida/comidaGato.png",
+    precio: 90,
+  },
+  {
+    id: 10,
+    tipo: "Juguete",
+    nombre: "Rascador",
+    img: "imagenes/productos/juguetes/gatos/rascadorGato.png",
+    precio: 300,
+  },
+  {
+    id: 11,
+    tipo: "Juguete",
+    nombre: "Raton",
+    img: "imagenes/productos/juguetes/gatos/ratonCuerda.png",
+    precio: 70,
+  },
+  {
+    id: 12,
+    tipo: "Juguete",
+    nombre: "Raton",
+    img: "imagenes/productos/juguetes/gatos/ratonPalo.png",
+    precio: 100,
+  },
+  {
+    id: 13,
+    tipo: "Alimento Ave",
+    nombre: "Bolsa Grande",
+    img: "imagenes/productos/comida/comidaAve.png",
+    precio: 100,
+  },
+  {
+    id: 14,
+    tipo: "Alimento Ave",
+    nombre: "Bolsa Mediana",
+    img: "imagenes/productos/comida/comidaAve.png",
+    precio: 90,
+  },
+  {
+    id: 15,
+    tipo: "Alimento Ave",
+    nombre: "Bolsa Chica",
+    img: "imagenes/productos/comida/comidaAve.png",
+    precio: 60,
+  },
+  {
+    id: 16,
+    tipo: "Juguete",
+    nombre: "Carrito",
+    img: "imagenes/productos/juguetes/pajaros/carrito.png",
+    precio: 220,
+  },
+  {
+    id: 17,
+    tipo: "Juguete",
+    nombre: "Hamaca",
+    img: "imagenes/productos/juguetes/pajaros/hamaca.png",
+    precio: 250,
+  },
+  {
+    id: 12,
+    tipo: "Juguete",
+    nombre: "Sonajero",
+    img: "imagenes/productos/juguetes/pajaros/sonajero.png",
+    precio: 110,
   },
 ];
 
@@ -107,7 +191,7 @@ const actualizarCarrito = () => {
     div.innerHTML = `
     <img src=${prod.img} alt ="">
     <p>${prod.nombre}</p>
-    <p>Precio: ${prod.precio}</p>
+    <p>Precio: $${prod.precio}</p>
     <button onclick ="eliminarDelCarrito(${prod.id})" ></button>
     
  `;

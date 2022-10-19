@@ -21,22 +21,46 @@ justify-content: center;
 #header{
     display: block;
 }
-#header nav ul{
-    padding-left: 2%;
-    padding-right: 2%;
-    background-color: rgb(168, 231, 152);
+.menu{
+    margin-left: 2%;
+  list-style-type: none;
+}
+
+.submenu{
+    margin-left: 4%;
+    visibility: none;
+    position: absolute;
+    opacity: 0;
+
+}
+
+.categorias{
+
+    width: 100%;
+    height: 100%;
+}
+.submenu li a{
+    display: block;
+    width: 120%;
+    padding: 15px;
+    text-decoration: none;
+}
+.menu li:hover .submenu{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+#header nav{
     display: flex;
-   justify-content: space-between;
-    list-style-type: none;
-    font-size: larger;
+    justify-content: space-between;
 }
 
 #contenedor-productos{
     margin-top: 8%;
     display: grid;
     grid-template-columns:repeat(3,1fr);
-    gap: 5%;
-    margin-bottom: 20vh;
+    margin-bottom: 8vw;
+    
 }
 
 #contenedor-productos div{
@@ -74,6 +98,14 @@ justify-content: center;
 
 }
 
+#miCarrito{
+    margin-right: 1.5%;
+    background-color: transparent;
+    border: none;
+    width: 3.5%;
+    height: 8vh;
+    background-image: url("imagenes/iconos/medio.png");
+}
 .modal_container{
     top: 0;
     left: 0;
@@ -96,45 +128,51 @@ justify-content: center;
 } 
 
 #modal{
-    margin-top: 5%;
+    margin-top: 10%;
     padding: 3em 2.5em;
-    display: grid;
-    gap: 1px;
-    background-color: white;
-    height: 500px;
-    width: 600px;
+    background-color: rgb(209, 153, 33);
+    max-height: 400px;
+    height: auto;
+    width: 500px;
     max-width: 600px;
     border-radius: 5px;
     text-align: center;
-    overflow: scroll;
+    overflow: auto;
 }
 
 #modal div{
-    margin-bottom: 2%;
-    gap: 1%;
-    border: solid black 1px;
+    margin-top: 2%;
+    border: solid rgb(211, 84, 10) 2.5px;
     display: flex;
     justify-content: space-between;
-    height: 25vh;
+    height: 15vh;
     width: auto;
     margin-right: 2%;
    
 } 
 
 #modal div img{
-    margin-left: 0%;
-    width: 16vw;
-    height: 25vh;
+   margin-top: 2%;
+    margin-left: 3%;
+    width: 5vw;
+    height: 12vh;
+}
+
+#modal div p{
+    margin-top: 7%;
+    font-size: large;
+    color: rgb(9, 84, 87);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #modal button{
-    padding-right: 0%;
+    background-color: transparent;
     border: none;
-    margin-top: 10%;
-    margin-right: 0%;
-    width: 6.5%;
-    height: 5vh;
-    background-image: url("imagenes/iconos/cruz.ico");
+    margin-top: 8%;
+    margin-right: 5%;
+    width: 8%;
+    height: 5.5vh;
+    background-image: url("imagenes/iconos/remo.png");
     
 }
 

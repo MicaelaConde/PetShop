@@ -16,10 +16,18 @@
 <body class="bgBienvenida"></body>
 <header id="header">
     <nav>
-        <ul>
-          
-            <li><a href="#" id="miCarrito">Mi carrito html</a></li>
-        </ul>
+        <ul class="menu">
+
+            <li class="desplegable"><a href=""><img src="imagenes/iconos/categorias.png" alt="" class="categorias"  ></a>
+                <ul class="submenu">
+                    <li><a href="">Alimentos</a></li>
+                    <li><a href="">Juguetes</a></li>
+                    <li><a href="">Accesorios</a></li>
+                </ul>
+                </li>         
+            </ul>
+                <button id="miCarrito"></button>
+       
     </nav>
     <div class="logo">
         <img src="imagenes/logo/logotr.png" alt="Logo">
@@ -43,10 +51,6 @@
         <button id="btnclose">Cerrar</button>
     </div>
        
-        
-
-    
-    
     
 </section>
 
@@ -56,13 +60,15 @@
 </main>
 
 
-
-<div class="btn-img">
-    <button id="btn-fetch">Fotos de mascotas</button>
-</div>
-
-<div id="img-random"></div>
-
+<section class="sectionFetch">
+    <div class="btn-img">
+        <button id="btn-fetch">Fotos de mascotas</button>
+    </div>
+    
+    <div id="img-random"></div>
+    
+    
+</section>
 
 <footer id="footer">
    <div class="links">
