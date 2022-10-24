@@ -63,12 +63,31 @@ justify-content: center;
     opacity: 1;
     transition: opacity 1.5s;  
 }
+
+.carousel-inner{
+    height: 55vh;
+}
+.carousel-item img{
+    height: 70vh;
+}
+
 #miCarrito{
     margin-top: 1vh;
     background-color: transparent;
     border: none;
     width: 3.5%;
     height: 8vh;
+    outline: none;
+}
+
+#modal .Carrito_vacio{
+    border: none;
+    display: flex;
+    justify-content: center;
+}
+
+#modal .CarritoVacio{
+    font-size: x-large;
 }
 .form_usuario{
     top: 0;
@@ -242,6 +261,13 @@ justify-content: space-between;
 
 }
 
+.carousel_vacio{
+    display: block;
+    position: absolute;
+    opacity: 0;
+    pointer-events:none ;
+}
+
 .modal_show{
     opacity: 1;
     pointer-events:unset;
@@ -331,11 +357,13 @@ justify-content: space-between;
 
 
 #footer{
-    background-color: rgb(168, 231, 152);
+    background-color: rgb(245, 228, 228);
     display: flex;
 }
   
-
+.links li{
+    list-style-type: none;
+}
 .icono{
     display: block;
     align-items: baseline;

@@ -1,24 +1,23 @@
 let carrito = [];
 let listado = [];
-const contenedorProductos = document.getElementById('contenedor-productos');
-const btnCarrito = document.getElementById('miCarrito');
-const modalContainer = document.getElementById('modal-container');
-const btnClose = document.getElementById('btnclose');
-const modal = document.getElementById('modal');
-const btnFetch = document.getElementById('btn-fetch');
-const random = document.getElementById('img-random');
-const cat_alimentos = document.getElementById('cat_alimentos');
-const cat_juguetes = document.getElementById('cat_juguetes');
-const cat_accesorios = document.getElementById('cat_accesorios');
-const cat_todos = document.getElementById('cat_todos');
-const btn_form = document.getElementById('btn_form');
-const form_usuario =document.getElementById('Form_usuario');
-const contenedor_form = document.getElementById('contenedor_form');
-const btn_cerrarForm = document.getElementById('btn_cerrarForm');
-const btnSubmit = document.getElementById('btn-submit');
-const div_form =document.getElementById('div_form');
-
-
+const contenedorProductos = document.getElementById("contenedor-productos");
+const btnCarrito = document.getElementById("miCarrito");
+const modalContainer = document.getElementById("modal-container");
+const btnClose = document.getElementById("btnclose");
+const modal = document.getElementById("modal");
+const btnFetch = document.getElementById("btn-fetch");
+const random = document.getElementById("img-random");
+const cat_alimentos = document.getElementById("cat_alimentos");
+const cat_juguetes = document.getElementById("cat_juguetes");
+const cat_accesorios = document.getElementById("cat_accesorios");
+const cat_todos = document.getElementById("cat_todos");
+const btn_form = document.getElementById("btn_form");
+const form_usuario = document.getElementById("Form_usuario");
+const contenedor_form = document.getElementById("contenedor_form");
+const btn_cerrarForm = document.getElementById("btn_cerrarForm");
+const btnSubmit = document.getElementById("btn-submit");
+const div_form = document.getElementById("div_form");
+const carousel = document.getElementById("carouselExampleControls");
 
 let stockproductos = [
   {
@@ -194,7 +193,13 @@ let stockproductos = [
   },
 ];
 
+const sacarCarousel = () => {
+  carousel.innerHTML = "";
+  carousel.classList.add("carousel_vacio");
+};
+
 const CategoriaAlimentos = () => {
+  sacarCarousel();
   const alimentos = stockproductos.filter(function (producto) {
     return producto.tipo == "Alimento";
   });
@@ -337,9 +342,7 @@ cat_todos.addEventListener("click", () => {
 const agregarAlCarrito = (prodID) => {
   const item = stockproductos.find((prod) => prod.id === prodID);
   carrito.push(item);
- 
-  
-  
+
   actualizarCarrito();
 };
 
@@ -357,11 +360,22 @@ const eliminarDelCarrito = (prodID) => {
   actualizarCarrito();
 };
 
+const carritovacio = () => {
+  if (carrito.length <= 0) {
+    modal.innerHTML = "";
+  }
+  if (modal.children.length <= 0) {
+    const div = document.createElement("div");
+    div.classList.add("Carrito_vacio");
+    div.innerHTML = `
+    <p class="CarritoVacio">Su carrito esta vacio</p>
+ `;
 
+    modal.appendChild(div);
+  }
+};
 const actualizarCarrito = () => {
   let total = 0;
-
-
   modal.innerHTML = "";
   carrito.forEach((prod) => {
     const div = document.createElement("div");
@@ -371,29 +385,27 @@ const actualizarCarrito = () => {
     <p>Precio: $${prod.precio}</p>
     <button onclick ="eliminarDelCarrito(${prod.id})" ><img src="imagenes/iconos/remo.png" alt=""></button>
  `;
-    
+
     modal.appendChild(div);
   });
 
- 
   const Finalizar_compra = () => {
-    
-  const boton = document.getElementById(`btn_finacompra`);
-  boton.addEventListener("click", () => {
-    modal.innerHTML = "";
-    carrito= [];
-    Swal.fire({
-      title: 'Compra Finalizada!',
-      imageUrl: 'imagenes/gracias.png',
-      imageWidth: 400,
-      imageHeight: 250,
-      imageAlt: 'Custom image',
-      confirmButtonText: 'Cerrar'
-    })
-  });
+    const boton = document.getElementById(`btn_finacompra`);
+    boton.addEventListener("click", () => {
+      modal.innerHTML = "";
+      carrito = [];
+      Swal.fire({
+        title: "Compra Finalizada!",
+        imageUrl: "imagenes/gracias.png",
+        imageWidth: 400,
+        imageHeight: 250,
+        imageAlt: "Custom image",
+        confirmButtonText: "Cerrar",
+      });
 
-  }
-
+      carritovacio();
+    });
+  };
   carrito.forEach((prod) => {
     total += parseInt(prod.precio);
   });
@@ -408,60 +420,53 @@ const actualizarCarrito = () => {
 `;
   modal.appendChild(fin_compra);
 
-  Finalizar_compra()
-
+  Finalizar_compra();
+  carritovacio();
 };
 
 btnSubmit.addEventListener("click", (event) => {
   event.preventDefault();
-form_usuario.classList.remove("form_show");
-const infousuario= []
-for(const input of div_form.children){
-  const obj={}
-   obj['tipo'] = input.name
-   obj['valor'] = input.value
-  infousuario.push(obj)
- 
-}
-localStorage.setItem('infousuario',JSON.stringify(infousuario))
-
-const info= JSON.parse(localStorage.getItem('infousuario'))
-let nombre=''
-let apellido= ''
-info.forEach(dato => {
-  if (dato.tipo=== 'name'){
-    nombre=dato.valor
+  form_usuario.classList.remove("form_show");
+  const infousuario = [];
+  for (const input of div_form.children) {
+    const obj = {};
+    obj["tipo"] = input.name;
+    obj["valor"] = input.value;
+    infousuario.push(obj);
   }
-  if(dato.tipo==='lastname'){
-    apellido= dato.valor
-  }
+  localStorage.setItem("infousuario", JSON.stringify(infousuario));
 
-});
-console.log(info)
+  const info = JSON.parse(localStorage.getItem("infousuario"));
+  let nombre = "";
+  let apellido = "";
+  info.forEach((dato) => {
+    if (dato.tipo === "name") {
+      nombre = dato.valor;
+    }
+    if (dato.tipo === "lastname") {
+      apellido = dato.valor;
+    }
+  });
+  console.log(info);
 
-Swal.fire(`Bienvenid@ ${nombre} a PetShop`)
+  Swal.fire(`Bienvenid@ ${nombre} a PetShop`);
 });
 
 btnCarrito.addEventListener("click", (event) => {
   event.preventDefault();
   modalContainer.classList.add("modal_show");
+  carritovacio();
 });
 
 btn_form.addEventListener("click", (event) => {
   event.preventDefault();
   form_usuario.classList.add("form_show");
-  
- 
- 
- 
 });
-
 
 btn_cerrarForm.addEventListener("click", (event) => {
   event.preventDefault();
   form_usuario.classList.remove("form_show");
 });
-
 
 btnClose.addEventListener("click", () => {
   modalContainer.classList.remove("modal_show");
