@@ -3,9 +3,14 @@
     margin: 0;
 }
 #header {
-background-color: rgba(253, 216, 216, 0.863);
-display: flex;
+background-color:rgb(245, 228, 228);
+display: block;
 justify-content: center;
+}
+#header nav{
+    background-color:rgb(245, 228, 228);
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo{
@@ -13,47 +18,139 @@ justify-content: center;
     justify-content: center;
 }
 
-
 .bgBienvenida{
-    background-color: rgb(42, 173, 9)
+    background-color:rgb(219, 203, 203);
 }
 
-#header{
-    display: block;
+.desplegable{
+    pointer-events:painted ;
+    margin-top: 2vh;
 }
 .menu{
-    margin-left: 2%;
+    margin-left: 1%;
   list-style-type: none;
 }
 
 .submenu{
-    margin-left: 4%;
+    margin-left: 1%;
     visibility: none;
     position: absolute;
     opacity: 0;
-
+    list-style-type: none;
 }
 
 .categorias{
 
-    width: 100%;
-    height: 100%;
+    width: 7vh;
 }
-.submenu li a{
+.submenu li{
     display: block;
-    width: 120%;
-    padding: 15px;
+    width: 110%;
+    padding: 12px;
     text-decoration: none;
 }
+.submenu li:hover{
+    background-color: rgb(219, 203, 203);
+}
+.btn_categorias{
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
 .menu li:hover .submenu{
     visibility: visible;
     opacity: 1;
-    transition: opacity 1.5s;
+    transition: opacity 1.5s;  
 }
-#header nav{
+#miCarrito{
+    margin-top: 1vh;
+    background-color: transparent;
+    border: none;
+    width: 3.5%;
+    height: 8vh;
+}
+.form_usuario{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    height: 50vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events:none ;
+
 }
+.form_show{
+    opacity: 1;
+    pointer-events:unset;
+}
+#contenedor_form{
+    border: solid rgb(117, 159, 236) 2px;
+    margin-top: 4%;
+    padding: 1em 2em;
+    background-color:  rgb(254, 251, 255);
+    max-height: 400px;
+    height: 700px;
+    width: 400px;
+    max-width: 600px;
+    border-radius: 5px;
+    text-align: center;
+    overflow: auto;
+    scrollbar-width: 10%;
+}
+
+.div_form{
+    margin-top: 10%;
+    display: flex;
+    gap: 10%;
+   
+}
+.div_form input{
+   height: 5vh;
+ }
+.div_form p{
+   font-size: large;
+ color: rgb(14, 81, 204);
+}
+
+.textboxEmail{
+    margin-left: 7.5% ;
+}
+.btn_submit{
+    font-size: large;
+    width: 30%;
+    margin-top: 8%;
+   border:solid 1px rgb(14, 81, 204);
+    border-radius: 5px;
+    background-color: rgb(191, 206, 235);
+}
+
+#btn_cerrarForm{
+  margin-left: 95%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.nav div{
+    margin-right: 5%;
+display: flex;
+justify-content: space-between;
+}
+
+#btn_form{
+    outline: none;
+    background-color: transparent;
+    border: none;
+    font-size: large;
+    color: rgb(25, 38, 207);
+    
+}
+
 
 #contenedor-productos{
     margin-top: 8%;
@@ -64,15 +161,15 @@ justify-content: center;
 }
 
 #contenedor-productos div{
-
+    margin-top: 2%;
     display: block;
    text-align: center;
    
 }
 
 #contenedor-productos div img{
-    width: 60%;
-    height: 65%;
+    width: 15vw;
+    height: 45vh;
     margin-top: 5%;
 
 }
@@ -90,7 +187,8 @@ justify-content: center;
     width: 25%;
     font-size: large;
     border: none;
-    background-color: rgb(168, 231, 152);
+    background-color: rgb(160, 141, 154);
+    outline: none;
 }
 .btn-agregar:hover{
     transform: scale(1.3);
@@ -98,22 +196,44 @@ justify-content: center;
 
 }
 
-#miCarrito{
-    margin-right: 1.5%;
-    background-color: transparent;
+#modal .total_compra{
     border: none;
-    width: 3.5%;
-    height: 8vh;
-    background-image: url("imagenes/iconos/medio.png");
 }
+#modal .Finalizar{
+    border: none;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#modal .Finalizar .btn_finacompra{
+    border: 2px rgb(117, 122, 116) solid;
+    background-color: rgb(247, 247, 247);
+  width: 25%;
+    height: 50%;
+    color: rgb(9, 84, 87);
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 6%;
+   
+}
+
+#modal .Finalizar .btn_finacompra:hover{
+    transform: scale(1.2);
+    background-color:rgb(219, 203, 203);
+}
+
+
 .modal_container{
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     position: fixed;
-    display: grid;
-     justify-content: center; 
+    display: block;
+    margin-left: 65vw;
  background-color:transparent;
     height: 100vh;
     width: 100vw;
@@ -128,21 +248,23 @@ justify-content: center;
 } 
 
 #modal{
-    margin-top: 10%;
-    padding: 3em 2.5em;
-    background-color: rgb(209, 153, 33);
+    border: solid rgb(99, 98, 97) 3px;
+    margin-top: 4%;
+    padding: 1em 2em;
+    background-color:  rgb(254, 251, 255);
     max-height: 400px;
     height: auto;
-    width: 500px;
+    width: 450px;
     max-width: 600px;
     border-radius: 5px;
     text-align: center;
     overflow: auto;
+    scrollbar-width: 10%;
 }
 
 #modal div{
     margin-top: 2%;
-    border: solid rgb(211, 84, 10) 2.5px;
+    border: solid rgb(133, 132, 133) 2.5px;
     display: flex;
     justify-content: space-between;
     height: 15vh;
@@ -157,7 +279,6 @@ justify-content: center;
     width: 5vw;
     height: 12vh;
 }
-
 #modal div p{
     margin-top: 7%;
     font-size: large;
@@ -168,16 +289,18 @@ justify-content: center;
 #modal button{
     background-color: transparent;
     border: none;
-    margin-top: 8%;
-    margin-right: 5%;
-    width: 8%;
-    height: 5.5vh;
-    background-image: url("imagenes/iconos/remo.png");
-    
+
+    margin-right: 8%;
+ 
+}
+#modal button img{
+    width: auto;
+    height: auto;
 }
 
 #btnclose{
     text-align: left;
+    border: none;
 }
 
 #img-random{
